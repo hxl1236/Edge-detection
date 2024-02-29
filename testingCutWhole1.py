@@ -129,6 +129,8 @@ if __name__ == "__main__":
     # Filter contours based on minimum area threshold
     filtered_contours = [contour for contour in all_contours if cv2.contourArea(contour) >= 50 and cv2.contourArea(contour) < 2000]#570
     overlaid_img = img.copy()
+    num_landmarks = len(filtered_contours)
+    print("Number of Landmarks:", num_landmarks)
     cv2.drawContours(overlaid_img, filtered_contours, -1, (0, 255, 0), 2)  # Draw filtered contours
     cv2.imshow('Overlayed Result', overlaid_img)
     cv2.waitKey(0)
